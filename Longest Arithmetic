@@ -6,30 +6,38 @@ int main(){
    cin>>t;
    int k=1;
    while(k<=t){
-   	cin>>n;
-   	int arr[n];
-   	for(int &i:arr){
-   		cin>>i;
-   	}
-    int curr=2;
+      cin>>n;
+      int arr[n];
+      for(int &i:arr){
+         cin>>i;
+      }
     int mx=INT_MIN;
-    int pd=arr[n-1]-arr[n-2];
+    if(n==1)
+       mx=1;
+    else if(n==2)
+      mx=2;
+   else{
+    int pd=INT_MAX;
+    int curr=2;
+   
+    pd=arr[n-1]-arr[n-2];
     int pd1;
     for(int i=n-2;i>0;i--){
-    	pd1=arr[i]-arr[i-1];
-    	if(pd1==pd)
-    	  curr++;
-    	else
-    	{
-    		curr=2;
-    		pd=pd1;
-    	}
-    	mx=max(mx,curr);
+      pd1=arr[i]-arr[i-1];
+      if(pd1==pd)
+        curr++;
+      else
+      {
+         curr=2;
+         pd=pd1;
+      }
+      mx=max(mx,curr);
 
     }
-    cout<<"case#"<<k<<":"<<mx<<endl;
- 
-   k++;
+ }
+    cout<<"Case #"<<k<<": "<<mx<<endl;
+     k++;
+
    }
-	return 0;
+   return 0;
 }
