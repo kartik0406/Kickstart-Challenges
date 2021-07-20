@@ -8,7 +8,7 @@ int main(){
    while(k<=t){
       cin>>n;
       int arr[n];
-      for(int &i:arr){
+      for(int &i:arr) {
          cin>>i;
       }
     int mx=INT_MIN;
